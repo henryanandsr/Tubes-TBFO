@@ -36,5 +36,63 @@ def lex(text, token_rules):
     return tokens
 
 token_rules = [
+
+    # COMMENT
+    (r'//.*', None),
+    (r'/\*(.|\n)*?\*/', None),
+
+    # KEYWORDS
+    (r'\bif\b', 'IF'),
+    (r'\belse\b', 'ELSE'),
+    (r'\bwhile\b', 'WHILE'),
+    (r'\bdo\b', 'DO'),
+    (r'\bfor\b', 'FOR'),
+    (r'\btrue\b', 'TRUE'),
+    (r'\bfalse\b', 'FALSE'),
+    (r'\bconst\b', 'CONST'),
+    (r'\bint\b', 'INT'),
+    (r'\bchar\b', 'CHAR'),
+    (r'\blet\b', 'LET'),
+    (r'\bfloat\b', 'FLOAT'),
+    (r'\bstring\b', 'STRING'),
+    (r'\bvar\b', 'VAR'),
+    (r'\bswitch\b', 'SWITCH'),
+    (r'\bcase\b', 'CASE'),
+    (r'\bdefault\b', 'DEFAULT'),
+    (r'\btry\b', 'TRY'),
+    (r'\bcatch\b', 'CATCH'),
+    (r'\breturn\b', 'RETURN'),
+    (r'\bfinally\b', 'FINALLY'),
+
+    # OPERATOR
+    (r'\+', 'PLUS'),
+    (r'\-', 'MINUS'),
+    (r'\/', 'DIV'),
+    (r'\*', 'MULT'),
+    (r'&&', 'AND'),
+    (r'\|\|', 'OR'),
+    (r'!', 'NOT'),
+    (r'\+=', 'SUMPLUS'),
+    (r'\-=', 'SUMMIN'),
+    (r'<', 'LE'),
+    (r'<=', 'LEQ'),
+    (r'>=', 'GEQ'),
+    (r'>', 'GE'),
+    (r'===', 'EQUAL_OPERATOR'),
+    (r'!==', 'NOT_EQUAL_OPERATOR'),
+    (r'=', 'ASSIGN'),
+    (r'%', 'MODULO'),
+
+    # PUNCTUATION
+    (r'\,', 'KOMA'),
+    (r'\;', 'TITIK_KOMA'),
+    (r'\:', 'TITIK_DUA'),
+    (r'\{', 'KURUNG_KURAWAL_BUKA'),
+    (r'\}', 'KURUNG_KURAWAL_TUTUP'),
+    (r'\(', 'KURUNG_BUKA'),
+    (r'\)', 'KURUNG_TUTUP'),
+    (r'\[', 'OPEN_BRACKET'),
+    (r'\]', 'CLOSE_BRACKET'),
+    (r'\n', 'ENTER'),
     
 ]
