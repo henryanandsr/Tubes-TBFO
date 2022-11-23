@@ -1,17 +1,24 @@
-def cyk(rule, word):
-    n = len(word)
-    table = [[set() for i in range(n)] for j in range(n)]
+def cyk(w,R):
+    n = len(w)
+    T = [[set([]) for i in range(n)] for j in range(n)]
 
-    for i in range(n):
-        for r in rule:
-            if r[1] == word[i]:
-                table[0][i].add(r[0])
+    for j in range(0,n):
+        for lhs, rule in R.items():
+            for rhs in rule:
+                if len(rhs) == 1 and rhs[0] == w[j]:
+                    T[j][j].add(lhs)
 
-    for i in range(1, n):
-        for j in range(n - i):
-            for k in range(i):
-                for r in rule:
-                    if r[1] == table[k][j] and r[2] == table[i - k - 1][j + k + 1]:
-                        table[i][j].add(r[0])
+        for i in range(j,-1,-1):
+            for k in range(i,j):
+                for lhs, rule in R.items():
+                    for rhs in rule:
+                        if len(rhs) == 2 and rhs[0] in T[i][k] and rhs[1] in T[k + 1][j]:
+                            T[i][j].add(lhs)
 
-    return table
+    if 'S' in T[0][n - 1]:
+        print("Compiled Successfully")
+    else:
+        print("Compilation Failed")
+
+if __name__ = "__main__":
+    pass
