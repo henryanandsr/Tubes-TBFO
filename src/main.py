@@ -6,7 +6,7 @@ from lexer import*
 def welcome():
     print("\033c", end="")
     print('''
-Welcome To 
+                                   Welcome To 
  _______ _    _    __     _______    _      _______    ______   ________ _______     
 |  ___  | |  | |  /  |   |_   __ \  / \    |_   __ \ .' ____ \ |_   __  |_   __ \    
 |_/  / /| |__| |_ `| |     | |__) |/ _ \     | |__) || (___ \_|  | |_ \_| | |__) |   
@@ -14,7 +14,7 @@ Welcome To
    / /      _| |_ _| |_   _| |_ _/ /   \ \_ _| |  \ \| \____) | _| |__/ |_| |  \ \_  
   /_/      |_____|_____| |_____|____| |____|____| |___\______.'|________|____| |___| 
                                                                                                            
-Ready to Parse your JavaScript Program!
+                      Ready to Parse your JavaScript Program!
         ''')
 
 def verdict():
