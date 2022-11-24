@@ -37,9 +37,50 @@ def lex(text, token_rules):
 
 token_rules = [
 
-    # COMMENT
+    # Not Token
+    (r'[ \t]+', None),
     (r'//.*', None),
     (r'/\*(.|\n)*?\*/', None),
+    (r'[\n]+[ \t]*\'\'\'[(?!(\'\'\'))\w\W]*\'\'\'',  None),
+    (r'[\n]+[ \t]*\"\"\"[(?!(\"\"\"))\w\W]*\"\"\"',  None),
+
+    # OPERATOR
+    (r'===', 'EQUAL_OPERATOR'),
+    (r'!==', 'NOT_EQUAL_OPERATOR'),
+    (r'&&', 'AND'),
+    (r'\|\|', 'OR'),
+    (r'!', 'NOT'),
+    (r'\+=', 'SUMPLUS'),
+    (r'\-=', 'SUMMIN'),
+    (r'<=', 'LEQ'),
+    (r'<', 'LE'),
+    (r'>=', 'GEQ'),
+    (r'>', 'GE'),
+    (r'=', 'ASSIGN'),
+    (r'%', 'MODULO'),
+    (r'\,', 'KOMA'),
+    (r'\;', 'TITIK_KOMA'),
+    (r'\:', 'TITIK_DUA'),
+    (r'\{', 'KURUNG_KURAWAL_BUKA'),
+    (r'\}', 'KURUNG_KURAWAL_TUTUP'),
+    (r'\(', 'KURUNG_BUKA'),
+    (r'\)', 'KURUNG_TUTUP'),
+    (r'\[', 'OPEN_BRACKET'),
+    (r'\]', 'CLOSE_BRACKET'),
+    (r'\n', 'ENTER'),
+    (r'\+', 'PLUS'),
+    (r'\-', 'MINUS'),
+    (r'\/', 'DIV'),
+    (r'\*', 'MULT'),
+    
+    # Type
+    (r'[\+\-]?[0-9]*\.[0-9]+',  "INT"),
+    (r'[\+\-]?[1-9][0-9]+',     "INT"),
+    (r'[\+\-]?[0-9]',           "INT"),
+    (r'\"[^\"\n]*\"',           "STRING"),
+    (r'\'[^\'\n]*\'',           "STRING"),
+    (r'\bconst\b',              "VAR"),
+    (r'\bvar\b',                "VAR"),
 
     # KEYWORDS
     (r'\bif\b', 'IF'),
@@ -64,35 +105,29 @@ token_rules = [
     (r'\breturn\b', 'RETURN'),
     (r'\bfinally\b', 'FINALLY'),
 
-    # OPERATOR
-    (r'\+', 'PLUS'),
-    (r'\-', 'MINUS'),
-    (r'\/', 'DIV'),
-    (r'\*', 'MULT'),
-    (r'&&', 'AND'),
-    (r'\|\|', 'OR'),
-    (r'!', 'NOT'),
-    (r'\+=', 'SUMPLUS'),
-    (r'\-=', 'SUMMIN'),
-    (r'<', 'LE'),
-    (r'<=', 'LEQ'),
-    (r'>=', 'GEQ'),
-    (r'>', 'GE'),
-    (r'===', 'EQUAL_OPERATOR'),
-    (r'!==', 'NOT_EQUAL_OPERATOR'),
-    (r'=', 'ASSIGN'),
-    (r'%', 'MODULO'),
-
-    # PUNCTUATION
-    (r'\,', 'KOMA'),
-    (r'\;', 'TITIK_KOMA'),
-    (r'\:', 'TITIK_DUA'),
-    (r'\{', 'KURUNG_KURAWAL_BUKA'),
-    (r'\}', 'KURUNG_KURAWAL_TUTUP'),
-    (r'\(', 'KURUNG_BUKA'),
-    (r'\)', 'KURUNG_TUTUP'),
-    (r'\[', 'OPEN_BRACKET'),
-    (r'\]', 'CLOSE_BRACKET'),
-    (r'\n', 'ENTER'),
-    
+    # Exception for variable
+    (r'[A-Za-z_][A-Za-z0-9_]*', 'VAR'),
 ]
+
+def createToken(text):
+    # Read file
+    file = open(text, encoding="utf8")
+    characters = file.read()
+    file.close()
+
+    tokens = lex(characters, token_rules)
+    tokenResult = []
+
+    for token in tokens:
+        tokenResult.append(token)
+
+
+    # Write file
+    path = os.getcwd()
+    fileWrite = open(path + "./tokenResult.txt", 'w')
+    for token in tokenResult:
+        fileWrite.write(str(token)+" ")
+        # print(token)
+    fileWrite.close()
+
+    return tokenResult
