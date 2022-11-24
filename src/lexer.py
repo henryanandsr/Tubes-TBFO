@@ -46,7 +46,9 @@ token_rules = [
 
     # OPERATOR
     (r'===', 'EQUAL_OPERATOR'),
+    (r'==', 'EQUAL_TO_OPERATOR'),
     (r'!==', 'NOT_EQUAL_OPERATOR'),
+    (r'!=', 'NOT_EQUAL_TO_OPERATOR'),
     (r'&&', 'AND'),
     (r'\|\|', 'OR'),
     (r'!', 'NOT'),
