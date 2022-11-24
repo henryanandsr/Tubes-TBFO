@@ -1,7 +1,5 @@
-while (a<5)
-{
-    if (5===i)
-    {
-        continue;
-    }
-}
+for (let i = 0; i < 10; i++) {
+    if (i === 3) { continue; }
+    text += "The number is " + i + "<br>";
+  }
+  

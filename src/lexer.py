@@ -112,8 +112,12 @@ token_rules = [
     (r'\bfinally\b', 'FINALLY'),
     (r'\bfunction\b', 'FUNC'),
     (r'\bbreak\b', 'BREAK'),
+    (r'\bthrow\b', 'THROW'),
+    (r'\bnew\b', 'NEW'),
+    (r'\bcontinue\b', 'CONTINUE'),
+    (r'\bclass\b', 'CLASS'),
 
-    # Exception for variable
+    # Untuk Variabel
     (r'[A-Za-z_][A-Za-z0-9_]*', 'VAR'),
 ]
 
