@@ -1,7 +1,7 @@
 import argparse
-from CFGtoCNF import readGrammarFile, convertGrammar, mapGrammar
-from CYK import cyk
-from lexer import createToken
+from CFGtoCNF import*
+from CYK import*
+from lexer import*
 
 def welcome():
     print("\033c", end="")
@@ -28,7 +28,7 @@ def verdict():
 
     token = createToken(args.file.name)
     token = [x.lower() for x in token]
-    CNFgrammar = mapGrammar(convertGrammar((readGrammarFile("CFG.txt"))))
+    CNFgrammar = CNFMap(CFGConverter((readCFG("CFG.txt"))))
     # print("Your code is: ")
     # print(token)
     # print()
