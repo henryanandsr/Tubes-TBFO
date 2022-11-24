@@ -1,6 +1,6 @@
+import sys
 def cyk(w, R):
-    print(w)
-    # print(R)
+    animation = "|/-\\"
     n = len(w)
     T = [[set([]) for j in range(n)] for i in range(n)]
     for j in range(0, n):
@@ -16,7 +16,9 @@ def cyk(w, R):
             for rhs in rule:
               if len(rhs) == 2 and rhs[0] in T[i][k] and rhs[1] in T[k + 1][j]:
                 T[i][j].add(lhs)
-  
+                sys.stdout.write("\rLoading..." + animation[k % len(animation)])
+    
+    print()
     if 'S' in T[0][n-1]:
         print("Compiled Successfully :)")
     else:
