@@ -12,4 +12,4 @@ Tugas Besar Teori Bahasa Formal dan Automata - Kelompok 741
 1. Buka terminal atau CMD lalu masukkan `https://github.com/henryanandsr/Tubes-TBFO.git`
 2. Pindah ke direktori src dengan `cd src`
 3. Masukkan file testing di direktori test
-4. Jalankan program dengan perintah `py main.py test/<nama file>`
+4. Jalankan program dengan perintah `python main.py ./test/<nama file>`
