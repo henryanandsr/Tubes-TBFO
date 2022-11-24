@@ -2,6 +2,7 @@ import argparse
 from CFGtoCNF import*
 from CYK import*
 from lexer import*
+from time import *
 
 def welcome():
     print("\033c", end="")
@@ -26,6 +27,7 @@ def verdict():
     print("File name: " + str(args.file.name))
     print()
 
+    start = time()
     token = createToken(args.file.name)
     token = [x.lower() for x in token]
     CNFgrammar = CNFMap(CFGConverter((readCFG("CFG.txt"))))
@@ -34,6 +36,8 @@ def verdict():
     # print()
     # print("Result :")
     cyk(token, CNFgrammar)
+    end = time()
+    print("Parsing Time: " + str(round(end-start,2)) + " seconds")
 
 if __name__ == "__main__":
     verdict()
