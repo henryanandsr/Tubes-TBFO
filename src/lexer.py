@@ -27,7 +27,8 @@ def lex(text, token_rules):
                 break
 
         if not flag:
-            print(f'\nSYNTAX ERROR\nIllegal char {text[pos]} at line {line} and column {current_pos}')
+            print("SYNTAX ERROR !!!")
+            print(f'Error Expression at line {line}: {text[pos:].splitlines()[0]}')
             sys.exit(1)
         else:
             pos = flag.end(0)
@@ -128,13 +129,12 @@ def createToken(text):
     for token in tokens:
         tokenResult.append(token)
 
-
     # Write file
-    path = os.getcwd()
-    fileWrite = open(path + "./tokenResult.txt", 'w')
-    for token in tokenResult:
-        fileWrite.write(str(token)+" ")
+    # path = os.getcwd()
+    # fileWrite = open(path + "./tokenResult.txt", 'w')
+    # for token in tokenResult:
+    #     fileWrite.write(str(token)+" ")
         # print(token)
-    fileWrite.close()
+    # fileWrite.close()
 
     return tokenResult
