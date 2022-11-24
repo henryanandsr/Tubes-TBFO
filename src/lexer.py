@@ -54,6 +54,8 @@ token_rules = [
     (r'!', 'NOT'),
     (r'\+=', 'SUMPLUS'),
     (r'\-=', 'SUMMIN'),
+    (r'\/=', 'SUMDIV'),
+    (r'\*=', 'SUMMULT'),
     (r'<=', 'LEQ'),
     (r'<', 'LE'),
     (r'>=', 'GEQ'),
