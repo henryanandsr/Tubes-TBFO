@@ -110,6 +110,7 @@ token_rules = [
     (r'\breturn\b', 'RETURN'),
     (r'\bfinally\b', 'FINALLY'),
     (r'\bfunction\b', 'FUNC'),
+    (r'\bbreak\b', 'BREAK'),
 
     # Exception for variable
     (r'[A-Za-z_][A-Za-z0-9_]*', 'VAR'),
