@@ -118,7 +118,7 @@ token_rules = [
     (r'\bclass\b', 'CLASS'),
 
     # Untuk Variabel
-    (r'[A-Za-z_][A-Za-z0-9_]*', 'VAR'),
+    (r'[A-Za-z_$][A-Za-z0-9_$]*', 'VAR'),
 ]
 
 def createToken(text):
