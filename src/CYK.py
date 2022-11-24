@@ -20,9 +20,9 @@ def cyk(w, R):
     
     print()
     if 'S' in T[0][n-1]:
-        print("Compiled Successfully :)")
+        print("Program Successfully Compiled!!! ^V^")
     else:
-        print("Compile Failed :(")
+        print("Program Failed to Compile T_T")
       
 if __name__ == "__main__":
   pass
