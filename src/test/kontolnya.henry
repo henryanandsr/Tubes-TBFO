@@ -1,6 +1,0 @@
-console.log("Kontol" + " " + "Saya Kecil awiwkok");
-for(int i = 0 ; i < 69 ; i++){
-    console.log("kontol saya mengecil");
-    kontol--;
-}
-console.log(kontol);
