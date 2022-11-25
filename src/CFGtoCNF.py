@@ -75,7 +75,7 @@ def CNFMap(grammar):
 
 # Convert CNF to TXT
 def CNFWriter(grammar):
-    file = open('cnf_new.txt', 'w')
+    file = open('CNF.txt', 'w')
     for rule in grammar:
         file.write(rule[0])
         file.write(" -> ")
