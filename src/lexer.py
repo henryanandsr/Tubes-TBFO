@@ -117,6 +117,8 @@ token_rules = [
     (r'\bcontinue\b', 'CONTINUE'),
     (r'\bclass\b', 'CLASS'),
     (r'\bdelete\b', 'DELETE'),
+    (r'\bget\b', 'GET'),
+    (r'\bin\b', 'IN'),
 
     # Untuk Variabel
     (r'[A-Za-z_$][A-Za-z0-9_$]*', 'VAR'),
