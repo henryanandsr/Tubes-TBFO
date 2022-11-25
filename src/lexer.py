@@ -4,14 +4,12 @@ import re
 
 def lex(text, token_rules):
     pos = 0
-    current_pos = 1
     line = 1
     tokens = []
 
     while (pos < len(text)):
         if text[pos] == '\n':
             line += 1
-            current_pos = 1
 
         flag = None
         for current_token in token_rules:
@@ -32,7 +30,6 @@ def lex(text, token_rules):
             sys.exit(1)
         else:
             pos = flag.end(0)
-        current_pos += 1
 
     return tokens
 
