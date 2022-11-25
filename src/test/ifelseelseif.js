@@ -4,6 +4,8 @@ if(x == 0){
     return 5;
 }else if((x+1) == 2){
     console.log("Benar");
+}else if((x+1) == 4){
+    console.log("Mungkin");
 }else{
     console.log("Salah");
 }
